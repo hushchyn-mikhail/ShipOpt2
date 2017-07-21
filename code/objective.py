@@ -32,11 +32,13 @@ def objective(StrawPitch = 1.7, OffsetLayer12 = 1.76/2, OffsetPlane12 = 1.76/4, 
                 output_file.write(line)
 
     #Run simulation
-    os.system('source $SHIPSOFT/FairShipRun/config.sh; cd $SHIPOPT/temp/; python2 $FAIRSHIP/macro/run_simScript.py')
+    ShipOpt = str(os.getenv('SHIPOPT'))
+    os.chdir(ShipOpt+'/temp/')
+    os.system('python $FAIRSHIP/macro/run_simScript.py')
 
     #Metric calculation
-    input_file = '$SHIPSOFT/temp/ship.conical.Pythia8-TGeant4.root'
-    geo_file = '$SHIPSOFT/temp/geofile_full.conical.Pythia8-TGeant4.root'
+    input_file = 'ship.conical.Pythia8-TGeant4.root'
+    geo_file = 'geofile_full.conical.Pythia8-TGeant4.root'
     dy = None
     reconstructiblerequired = 2
     threeprong = 0
