@@ -34,6 +34,7 @@ def objective(StrawPitch = 1.7, OffsetLayer12 = 1.76/2, OffsetPlane12 = 1.76/4, 
     #Run simulation
     ShipOpt = str(os.getenv('SHIPOPT'))
     os.chdir(ShipOpt+'/temp/')
+    os.system('source $SHIPSOFT/FairShipRun/config.sh')
     os.system('python $FAIRSHIP/macro/run_simScript.py')
 
     #Metric calculation
