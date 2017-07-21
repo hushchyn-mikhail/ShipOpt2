@@ -1,3 +1,4 @@
+import os
 import GPyOpt
 import numpy as np
 
@@ -8,4 +9,5 @@ feasible_region = GPyOpt.Design_space(space=space, constraints=constraints)
 np.random.seed(7)
 initial_design = GPyOpt.util.stats.initial_design('random', feasible_region, 5)
 
-np.save('../observations/initial_design.npy', initial_design)
+ShipOpt = str(os.getenv('SHIPOPT'))
+np.save(ShipOpt+'/observations/initial_design.npy', initial_design)

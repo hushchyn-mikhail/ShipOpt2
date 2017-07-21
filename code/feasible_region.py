@@ -1,11 +1,12 @@
 min_dist = 1.6
 
-space = [{'name': 'pitch', 'type': 'continuous', 'domain': (min_dist, min_dist)},\
-         {'name': 'yoffset_layer', 'type': 'continuous', 'domain': (0, min_dist)},\
-         {'name': 'yoffset_plane', 'type': 'continuous', 'domain': (0, min_dist)},\
+space = [{'name': 'pitch', 'type': 'continuous', 'domain': (min_dist, min_dist*2)},\
+         {'name': 'yoffset_layer', 'type': 'continuous', 'domain': (0, min_dist*2)},\
+         {'name': 'yoffset_plane', 'type': 'continuous', 'domain': (0, min_dist*2)},\
          {'name': 'zshift_layer', 'type': 'continuous', 'domain': (min_dist, 10)},\
          {'name': 'zshift_plane', 'type': 'continuous', 'domain': (min_dist*2, 20)},\
-         {'name': 'zshift_view', 'type': 'continuous', 'domain': (min_dist*4, 50)},\
+         #{'name': 'zshift_view', 'type': 'continuous', 'domain': (min_dist*4, 50)},\
+         {'name': 'zshift_view', 'type': 'continuous', 'domain': (min_dist*6, min_dist*6)},\
          {'name': 'alpha', 'type': 'discrete', 'domain': (5, 5)}]
 
 constraints = [{'name': 'constr_1', 'constrain': 'x[:,1]-x[:,0]'},\
